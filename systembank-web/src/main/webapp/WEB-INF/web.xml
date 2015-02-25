@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="systembankmaven" version="3.0">
+  <display-name>Systembank Web</display-name>
+  <servlet>
+  	<servlet-name>NuevoClienteServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.NuevoClienteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListarClientesServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ListarClientesServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ActualizaClienteServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ActualizaClienteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MuestraClienteServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.MuestraClienteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EliminaClienteServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.EliminaClienteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReporteClientesServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ReporteClientesServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReporteCuentaServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.ReporteCuentaServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+  	<servlet-name>NuevoClienteServlet</servlet-name>
+  	<url-pattern>/clientes/nuevoCliente.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListarClientesServlet</servlet-name>
+  	<url-pattern>/clientes/listarClientes.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ActualizaClienteServlet</servlet-name>
+  	<url-pattern>/clientes/actualizaCliente.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MuestraClienteServlet</servlet-name>
+  	<url-pattern>/clientes/muestraCliente.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EliminaClienteServlet</servlet-name>
+  	<url-pattern>/clientes/eliminarCliente.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReporteClientesServlet</servlet-name>
+  	<url-pattern>/clientes/reporteClientes.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReporteCuentaServlet</servlet-name>
+  	<url-pattern>/cuenta/reporteCuenta.do</url-pattern>
+  </servlet-mapping>
+
+  
+  <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  
+</web-app>
