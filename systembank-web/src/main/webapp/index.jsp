@@ -1,58 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<script type="text/javascript" src="js/ExtJS/ext-all-debug.js"></script>
 	<link rel="stylesheet" 
 		type="text/css" href="js/ExtJS/ext-theme-neptune/ext-theme-neptune-all-debug.css">
 		
+	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript">
 		Ext.onReady(function() {
-			Ext.create('Ext.Viewport', {
-				id: 'main-container',
-				layout: 'border',
-				height: '100%',
-				items: [{
-					xtype: 'box',
-		            id: 'header',
-		            region: 'north',	            
-		            html: '<h1>Systembank</h1>',
-		            style: {
-		            	color: '#FFF'
-		            },
-		            height: 60
-		        }, {
-	                title: 'Menú Principal',
-	                width: 150,
-	                collapsible: true,
-	                resizable: false,
-	                region: 'west',                               
-	                items: {
-	                    xtype: 'menu',
-		                autoWidth: true,			
-					    floating: false, // true: posicion abosoluta, false: para comportarse como compinente hijo
-					    border: 0,
-					    items: [{
-					        text: 'Clientes',
-					        href: '#'
-					    },{
-					        text: 'Cuentas',
-					        href: '#'
-					    },{
-					        text: 'Movimientos',
-					        href: '#'
-					    }]
-	                }
-	            }, {
-					id: 'content-panel',
-					region: 'center',				
-					layout: 'fit', 
-					title: 'Bienvenidos',
-					contentEl: 'content'
-				}],
-				renderTo: Ext.getBody()
+			
+			var welcome = new Ext.panel.Panel({
+				title: 'Bienvenidos',
+				layout: 'fit',
+				contentEl: 'content'
 			});
-	
+			
+			Ext.getCmp('content-panel').removeAll();
+			Ext.getCmp('content-panel').add(welcome);
+		
 		});
-
 	</script>
 </head>	
 <body>

@@ -6,6 +6,10 @@
 	id="systembankmaven" version="3.0">
   <display-name>Systembank Web</display-name>
   <servlet>
+  	<servlet-name>ClientesServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ClientesServlet</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>NuevoClienteServlet</servlet-name>
   	<servlet-class>mx.com.mentoringit.systembank.web.clientes.NuevoClienteServlet</servlet-class>
   </servlet>
@@ -57,6 +61,10 @@
   <servlet-mapping>
   	<servlet-name>ReporteClientesServlet</servlet-name>
   	<url-pattern>/clientes/reporteClientes.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ClientesServlet</servlet-name>
+  	<url-pattern>/clientes.do</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ReporteCuentaServlet</servlet-name>
