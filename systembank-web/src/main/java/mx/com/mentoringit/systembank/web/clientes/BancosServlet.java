@@ -2,46 +2,46 @@ package mx.com.mentoringit.systembank.web.clientes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mx.com.mentoringit.systembank.dao.impl.ClienteDAOImpl;
-import mx.com.mentoringit.systembank.dao.interfaces.ClienteDAO;
+import com.google.gson.Gson;
+
+import mx.com.mentoringit.systembank.dto.Banco;
 
 /**
- * Servlet implementation class EliminaClienteServlet
+ * Servlet implementation class BancosServlet
  */
-public class EliminaClienteServlet extends HttpServlet {
+public class BancosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private ClienteDAO clienteDAO = new ClienteDAOImpl();
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminaClienteServlet() {
+    public BancosServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter writer = response.getWriter();
-		int clienteId = Integer.parseInt(request.getParameter("id"));
+		PrintWriter writter = response.getWriter();
+		Map<String, Object> mapa = new HashMap<String, Object>();
 		
-		try {
-			if(clienteDAO.borrar(clienteId)) {
-
-			}
-		} catch (SQLException e) {
-
-		}
-		writer.println("<h1>Eliminar</h1>");
+		StringBuilder sb = new StringBuilder("[");
+		for (Banco banco: Banco.values()){
+			sb.append("[banco:").append(banco.getClave()).append("],");
+		}		
+		mapa.put("bancos", sb.toString().substring(0, sb.lastIndexOf(",")) + "]");		
+		Gson gson = new Gson();
+		writter.println(gson.toJson(mapa));
 		
 	}
 

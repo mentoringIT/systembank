@@ -42,20 +42,20 @@ public class ActualizaClienteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter writer = response.getWriter();
 		Cliente cliente = new Cliente();
-//		cliente.setId(Integer.parseInt(request.getParameter("id")));
-//		cliente.setNombre(request.getParameter("nombre"));
-//		cliente.setApellidoPaterno(request.getParameter("apellidoPaterno"));
-//		cliente.setApellidoMaterno(request.getParameter("apellidoMaterno"));
-//		cliente.setEdad(Integer.parseInt(request.getParameter("edad")));
-//		cliente.setBancoId(Integer.parseInt(request.getParameter("bancoId")));;
-//		
-//		try {
-//			if(clienteDAO.actualizar(cliente)) {
-//			
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();			
-//		}
+		cliente.setId(Integer.parseInt(request.getParameter("id")));
+		cliente.setNombre(request.getParameter("nombre"));
+		cliente.setApellidoPaterno(request.getParameter("apellidoPaterno"));
+		cliente.setApellidoMaterno(request.getParameter("apellidoMaterno"));
+		cliente.setEdad(Integer.parseInt(request.getParameter("edad")));
+		cliente.setBancoId(Integer.parseInt(request.getParameter("bancoId")));
+		
+		try {
+			if(clienteDAO.actualizar(cliente)) {
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();			
+		}
 		writer.println("<h1>Actualizar</h1>");
 	}
 

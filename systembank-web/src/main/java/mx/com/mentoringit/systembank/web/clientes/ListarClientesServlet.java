@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 import mx.com.mentoringit.systembank.dao.impl.ClienteDAOImpl;
 import mx.com.mentoringit.systembank.dao.interfaces.ClienteDAO;
+import mx.com.mentoringit.systembank.dao.interfaces.CuentaDAO;
 import mx.com.mentoringit.systembank.dto.Cliente;
 
 /**
@@ -31,6 +32,7 @@ public class ListarClientesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private ClienteDAO clienteDAO;
+	private CuentaDAO cuentaDAO;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -44,28 +46,32 @@ public class ListarClientesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter writer = response.getWriter();		
-		ApplicationContext context = 
-				WebApplicationContextUtils.getWebApplicationContext(getServletContext());	
-		clienteDAO = (ClienteDAO) context.getBean("ClienteDAO");
-			
-		List<Cliente> clientes = new ArrayList<Cliente>();
+		PrintWriter writer = response.getWriter();
+		ApplicationContext context =
+			WebApplicationContextUtils.getWebApplicationContext(getServletContext()); 
+		clienteDAO = (ClienteDAO) context.getBean("ClienteDAO");		
+		cuentaDAO = (CuentaDAO) context.getBean("CuentaDAO");
+		
+		List<Cliente> clientes = new ArrayList<Cliente>();		
 		try {
-			clientes = clienteDAO.listarClientes();		
+			clientes = clienteDAO.listarClientes();
+			for(Cliente cliente: clientes){
+				cliente.setCuentas(
+						cuentaDAO.obtenerCuentasCliente(cliente.getId()));
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 		
-		Map<String, Object> result;
-		result = new HashMap<String, Object>();
-		result.put("success", true);
+		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("clientes", clientes);
-		Gson convertidor= new Gson();
-		String objJson = convertidor.toJson(result); 
-
-		writer.print(objJson);
+		result.put("total", clientes.size());
+		result.put("success", true);
+		
+		Gson convertidor = new Gson();
+		String mapaJson = convertidor.toJson(result);
+		writer.println(mapaJson);
 		writer.close();
-
 	}
 
 	/**
