@@ -15,7 +15,6 @@ import com.google.gson.Gson;
 
 import mx.com.mentoringit.systembank.dao.impl.ClienteDAOImpl;
 import mx.com.mentoringit.systembank.dao.interfaces.ClienteDAO;
-import mx.com.mentoringit.systembank.dto.Banco;
 import mx.com.mentoringit.systembank.dto.Cliente;
 
 /**
@@ -50,10 +49,8 @@ public class NuevoClienteServlet extends HttpServlet {
 		cliente.setNombre(request.getParameter("nombre"));
 		cliente.setApellidoPaterno(request.getParameter("apellidoPaterno"));
 		cliente.setApellidoMaterno(request.getParameter("apellidoMaterno"));
-		cliente.setEdad(Integer.parseInt(request.getParameter("edad")));
-		
-		Banco banco = Banco.valueOf(request.getParameter("banco")); 
-		cliente.setBancoId(banco.getId());
+		cliente.setEdad(Integer.parseInt(request.getParameter("edad")));		
+		cliente.setBancoId(Integer.parseInt(request.getParameter("bancoId")));
 		
 		Map<String, Object> result = new HashMap<String, Object>(); 
 		

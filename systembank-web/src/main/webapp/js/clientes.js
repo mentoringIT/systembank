@@ -31,13 +31,13 @@ Ext.onReady(function(){
         pageSize: 1
 	});
 	
-	var storeBancos = new Ext.data.ArrayStore({
+	var storeBancos = new Ext.data.Store({
 		storeId:'bancos-store',
 		proxy: {
 			type: 'ajax',
 			url: 'bancos.do',
 			reader: {
-				type: 'array',
+				type: 'json',
 				root: 'bancos'				
 			}
 		},
@@ -70,6 +70,7 @@ Ext.onReady(function(){
 		width: 300,
 		height: 500,
 		layout: 'fit',
+		closeAction: 'hide',
 		items: {
 			xtype: 'form',
 			id: 'cliente-form',			
@@ -101,11 +102,11 @@ Ext.onReady(function(){
 			    },
 			    {
 			    	xtype: 'combo',
-			    	name: 'banco',
+			    	name: 'bancoId',
 			    	fieldLabel: 'Banco',
 			    	store: storeBancos,
 			    	displayField: 'banco',
-			    	valueField: 'banco',
+			    	valueField: 'id',
 			    	allowBlank: false
 			    }
 			]
@@ -146,6 +147,7 @@ Ext.onReady(function(){
 		    {
 		    	text: 'Cancelar',
 		    	handler: function(){
+		    		Ext.getCmp('cliente-form').getForm().reset();
 		    		window.close();
 		    	}
 		    }

@@ -32,17 +32,22 @@ public class BancosServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter writter = response.getWriter();
-		Map<String, Object> mapa = new HashMap<String, Object>();
-		
-		StringBuilder sb = new StringBuilder("[");
+		PrintWriter writter = response.getWriter();		
+		StringBuilder sb = new StringBuilder("{\"bancos\": [");
 		for (Banco banco: Banco.values()){
-			sb.append("[banco:").append(banco.getClave()).append("],");
-		}		
-		mapa.put("bancos", sb.toString().substring(0, sb.lastIndexOf(",")) + "]");		
-		Gson gson = new Gson();
-		writter.println(gson.toJson(mapa));
-		
+			sb.append("{");
+			sb.append("\"id\":\"");
+			sb.append(banco.getId());
+			sb.append("\",");
+			
+			sb.append("\"banco\":\"");
+			sb.append(banco.getClave());
+			sb.append("\"");
+			
+			sb.append("},");
+		}	
+		String out =sb.substring(0, sb.lastIndexOf(",")) + "]}";	
+		writter.println(out);						
 	}
 
 	/**
