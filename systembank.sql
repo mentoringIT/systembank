@@ -1,8 +1,8 @@
 --
 -- Base de datos: systembank
 --
-CREATE DATABASE systembankTest DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE systembankTest;
+CREATE DATABASE systembank DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE systembank;
 
 -- --------------------------------------------------------
 
