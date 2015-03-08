@@ -28,7 +28,7 @@ Ext.onReady(function() {
 			        href: 'clientes.do'
 			    },{
 			        text: 'Cuentas',
-			        href: '#'
+			        href: 'cuentas.do'
 			    },{
 			        text: 'Movimientos',
 			        href: '#'

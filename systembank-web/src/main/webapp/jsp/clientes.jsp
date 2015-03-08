@@ -13,6 +13,14 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/clientes.js"></script>
 
+<script type="text/javascript">
+Ext.onReady(function(){
+	Ext.getCmp('content-panel').removeAll();
+	Ext.getCmp('content-panel').add(clientes);
+});
+
+</script>
+
 <title>Clientes</title>
 </head>
 <body>

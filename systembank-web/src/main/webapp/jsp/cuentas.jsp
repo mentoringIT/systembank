@@ -4,6 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="js/ExtJS/ext-all-debug.js"></script>	
+<link rel="stylesheet" type="text/css" href="js/ExtJS/ext-theme-neptune/ext-theme-neptune-all-debug.css">
+<script type="text/javascript" src="js/ExtJS/toolbar/Paging.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/clientes.js"></script>
+<script type="text/javascript" src="js/cuentas.js"></script>
+<script type="text/javascript">
+Ext.onReady(function(){
+	Ext.getCmp('content-panel').removeAll();
+	Ext.getCmp('content-panel').add(cuentas);
+});
+
+</script>
+
 <title>Cuentas</title>
 </head>
 <body>

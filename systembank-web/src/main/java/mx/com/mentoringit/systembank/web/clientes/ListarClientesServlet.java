@@ -54,7 +54,7 @@ public class ListarClientesServlet extends HttpServlet {
 		
 		List<Cliente> clientes = new ArrayList<Cliente>();		
 		try {
-			clientes = clienteDAO.listarClientes();
+			clientes = clienteDAO.listarClientes();			
 			for(Cliente cliente: clientes){
 				cliente.setCuentas(
 						cuentaDAO.obtenerCuentasCliente(cliente.getId()));

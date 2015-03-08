@@ -5,6 +5,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="systembankmaven" version="3.0">
   <display-name>Systembank Web</display-name>
+  
+<!--   Clientes -->
   <servlet>
   	<servlet-name>NuevoClienteServlet</servlet-name>
   	<servlet-class>mx.com.mentoringit.systembank.web.clientes.NuevoClienteServlet</servlet-class>
@@ -29,10 +31,6 @@
   	<servlet-name>ReporteClientesServlet</servlet-name>
   	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ReporteClientesServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>ReporteCuentaServlet</servlet-name>
-  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.ReporteCuentaServlet</servlet-class>
-  </servlet>
   <servlet>  	
   	<servlet-name>ClientesServlet</servlet-name>
   	<servlet-class>mx.com.mentoringit.systembank.web.clientes.ClientesServlet</servlet-class>
@@ -41,7 +39,35 @@
   	<servlet-name>BancosServlet</servlet-name>
   	<servlet-class>mx.com.mentoringit.systembank.web.clientes.BancosServlet</servlet-class>
   </servlet>
+  
+<!--   Cuentas -->
+  <servlet>  	
+  	<servlet-name>CuentasServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.CuentasServlet</servlet-class>
+  </servlet>
+  <servlet>  	
+  	<servlet-name>ListarCuentasServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.ListarCuentasServlet</servlet-class>
+  </servlet>
+  <servlet>  	
+  	<servlet-name>NuevaCuentaServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.NuevaCuentaServlet</servlet-class>
+  </servlet>
+  <servlet>  	
+  	<servlet-name>ActualizarCuentaServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.ActualizarCuentaServlet</servlet-class>
+  </servlet>
+  <servlet>  	
+  	<servlet-name>TipoCuentaServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.TipoCuentaServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReporteCuentaServlet</servlet-name>
+  	<servlet-class>mx.com.mentoringit.systembank.web.cuentas.ReporteCuentaServlet</servlet-class>
+  </servlet>
  
+  
+<!--   Clientes -->
   <servlet-mapping>
   	<servlet-name>NuevoClienteServlet</servlet-name>
   	<url-pattern>/clientes/nuevoCliente.do</url-pattern>
@@ -67,10 +93,6 @@
   	<url-pattern>/clientes/reporteClientes.do</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>ReporteCuentaServlet</servlet-name>
-  	<url-pattern>/cuenta/reporteCuenta.do</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
   	<servlet-name>ClientesServlet</servlet-name>
   	<url-pattern>/clientes.do</url-pattern>
   </servlet-mapping>
@@ -80,6 +102,33 @@
   </servlet-mapping>
 
   
+<!--   Cuentas -->
+  <servlet-mapping>
+  	<servlet-name>CuentasServlet</servlet-name>
+  	<url-pattern>/cuentas.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TipoCuentaServlet</servlet-name>
+  	<url-pattern>/tipoCuenta.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListarCuentasServlet</servlet-name>
+  	<url-pattern>/cuentas/listarCuentas.do</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>NuevaCuentaServlet</servlet-name>
+  	<url-pattern>/cuentas/nuevaCuenta.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ActualizarCuentaServlet</servlet-name>
+  	<url-pattern>/cuentas/actualizarCuenta.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+  	<servlet-name>ReporteCuentaServlet</servlet-name>
+  	<url-pattern>/cuenta/reporteCuenta.do</url-pattern>
+  </servlet-mapping>
+    
   <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

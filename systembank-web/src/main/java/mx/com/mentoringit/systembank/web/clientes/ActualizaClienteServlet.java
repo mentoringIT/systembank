@@ -3,6 +3,8 @@ package mx.com.mentoringit.systembank.web.clientes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,15 +50,18 @@ public class ActualizaClienteServlet extends HttpServlet {
 		cliente.setApellidoMaterno(request.getParameter("apellidoMaterno"));
 		cliente.setEdad(Integer.parseInt(request.getParameter("edad")));
 		cliente.setBancoId(Integer.parseInt(request.getParameter("bancoId")));
-		
+		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			if(clienteDAO.actualizar(cliente)) {
-			
+				result.put("success", true);
+				result.put("msg", "Se actualizo la informacion del Cliente");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();			
+			result.put("success", false);
+			result.put("error", "Se actualizo la informacion del Cliente");
 		}
-		writer.println("<h1>Actualizar</h1>");
+		
 	}
 
 }
