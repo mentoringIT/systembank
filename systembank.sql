@@ -120,23 +120,6 @@ INSERT INTO tipomovimiento (idTipoMovimiento, nombre) VALUES
 (1, 'Cargo'),
 (2, 'Abono');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla usuario
---
-
-CREATE TABLE IF NOT EXISTS usuario (
-  idUsuario int(11) NOT NULL AUTO_INCREMENT,
-  nombre varchar(30) NOT NULL,
-  apaterno varchar(30) DEFAULT NULL,
-  amaterno varchar(30) DEFAULT NULL,
-  usuario varchar(10) NOT NULL,
-  password varchar(10) NOT NULL,
-  PRIMARY KEY (idUsuario)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
 -- Restricciones para tablas volcadas
 --
 
